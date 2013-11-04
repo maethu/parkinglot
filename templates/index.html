@@ -1,0 +1,16 @@
+<!doctype html>
+
+<html>
+<head>
+ Parkinglot observer
+</head>
+
+{% for parkinglot in parkinglots %}
+    <div class="wrappter">
+     This is parkinglot: {{ parkinglot.get('parkinglot') }}
+     <br />
+     Status: {{  parkinglot.get('has_car')}}
+    </div>
+{% endfor %}
+
+</html>

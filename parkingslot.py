@@ -1,6 +1,6 @@
 import smbus
 import time
-
+import json
 
 class ParkingSlot():
 
@@ -50,7 +50,13 @@ class ParkingSlotObserver(object):
             print data
             result.append(data)
         return result
-        
+
+    def get_json(self):
+        result = []
+        for i, slot in enumerate(self.slots):
+            data = dict(parkinglot=i, has_car=slot.has_car(self.distance))
+            result.append(data)
+        return json.dumps(result)
 
 
 #app = ParkingSlotObserver(distance=20)
